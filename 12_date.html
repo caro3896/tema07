@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Indtast din alder.</p>
+    <input type="text" id="din_alder">
+    <p>Indtast din dates alder.</p>
+    <input type="text" id="alder_date">
+    <button>Se om reglen er overholdt</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let alder = document.querySelector("#din_alder").value;
+            if (alder <= 15) {
+                console.log("Du er for ung til dette site.")
+            }
+            let alderDate = document.querySelector("#alder_date").value;
+            if (alder <= 15) {
+                console.log("Du er for ung til dette site.")
+            }
+            let regel1 = (alder / 2) + 7;
+            let regel2 = (alder - 7) * 2;
+
+            if (alderDate < regel1) {
+                console.log("Øv, din date er for ung.");
+            } else if (alderDate > regel2) {
+                console.log("Øv, din date er for gammel.")
+            } else {
+                console.log("Tillykke din date har rette alder.");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
