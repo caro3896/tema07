@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <script>
+        let date = new Date("January 2, 2021 03:15:00");
+        let time = date.getHours();
+
+        if (time < 5) {
+            console.log("Godnat");
+        } else if (time < 10) {
+            console.log("Godmorgen");
+        } else if (time < 18) {
+            console.log("Goddag");
+        } else if (time < 24) {
+            console.log("Godaften");
+        }
+
+    </script>
+</body>
+
+</html>
