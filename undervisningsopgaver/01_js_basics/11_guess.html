@@ -16,16 +16,18 @@
     <script>
         let tal = Math.round(Math.random() * 20);
         console.log(tal);
+        let antalGæt = 0;
         document.querySelector("button").addEventListener("click", buttonClicked);
 
         function buttonClicked() {
+            antalGæt++;
             let gæt = document.querySelector("#guess").value;
             if (gæt == tal) {
-                console.log("Du gættede rigtigt.");
+                console.log(`Du gættede rigtigt. Du brugte ${antalGæt} gæt`);
             } else if (gæt > tal) {
-                console.log("Forkert.Du gættede for højt.")
+                console.log("Forkert.Du gættede for højt.");
             } else if (gæt < tal) {
-                console.log("Forkert. Du gættede for lavt.")
+                console.log("Forkert. Du gættede for lavt.");
             }
         }
 
