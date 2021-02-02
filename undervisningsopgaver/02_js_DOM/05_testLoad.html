@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            display: block;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 20px;
+        }
+
+        article {
+            border: 1px solid black;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        header,
+        footer {
+            padding: 10px 0;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Titel</h1>
+    </header>
+    <main>
+        <h2>Undertitel</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/640/480/arch/grayscale" alt="">
+                <h3>Article 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint voluptatibus culpa distinctio corrupti mollitia quae aspernatur nesciunt nam iure facilis eius non, optio consequuntur delectus dignissimos sequi iste, et autem!</p>
+            </article>
+            <article>
+                <img src="https://placeimg.com/640/480/nature/grayscale" alt="">
+                <h3>Article 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint voluptatibus culpa distinctio corrupti mollitia quae aspernatur nesciunt nam iure facilis eius non, optio consequuntur delectus dignissimos sequi iste, et autem!</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>This is the footer</p>
+    </footer>
+    <script>
+        const titel = document.querySelector("header");
+        console.log(titel);
+
+        const undertitel = document.querySelector("h2");
+        console.log(undertitel);
+
+        const section = document.querySelector("section");
+        console.log(section);
+
+        const article1 = document.querySelector("article:first-child");
+        console.log(article1);
+
+        const article2 = document.querySelector("article:nth-child(2)");
+        console.log(article2);
+
+        const img1 = document.querySelector("article:first-child img");
+        console.log(img1);
+
+        const img2 = document.querySelector("article:nth-child(2) img");
+        console.log(img2);
+
+        const undertitel1 = document.querySelector("article:first-child h3");
+        console.log(undertitel1);
+
+        const undertitel2 = document.querySelector("article:nth-child(2) h3");
+        console.log(undertitel2);
+
+        const brødtekst1 = document.querySelector("article:first-child p");
+        console.log(brødtekst1);
+
+        const brødtekst2 = document.querySelector("article:nth-child(2) p");
+        console.log(brødtekst2);
+
+        const footer = document.querySelector("footer");
+        console.log(footer);
+
+        window.addEventListener("load", erSidenLoadet);
+
+        function erSidenLoadet() {
+            console.log("Siden er loadet");
+
+            //Udskift titel i header//
+            titel.innerHTML = "<u>Se her";
+            undertitel1.textContent = "Arkitektur";
+            undertitel2.innerHTML = "<i>Natur";
+
+            //Udskift billeder//
+            img1.src = "https://placeimg.com/640/480/tech/sepia";
+            img1.alt = "Dette er et billede af teknologi";
+            img2.src = "https://placeimg.com/640/480/people/sepia";
+            img2.alt = "Dette er et billede af mennesker";
+
+            //Tilføjer nyt element//
+            let article = document.createElement("article");
+            section.appendChild(article);
+
+            let img = document.createElement("img");
+            img.src = "http://mabe-kea.dk/E19/pics/pig.png";
+            article.appendChild(img);
+
+            let h3 = document.createElement("h3");
+            let overskrift = document.createTextNode("En overskrift");
+            h3.appendChild(overskrift);
+            article.appendChild(h3);
+
+            let p = document.createElement("p");
+            let tekst = document.createTextNode("En lille grim gris");
+            p.appendChild(tekst);
+            article.appendChild(p);
+
+        }
+
+    </script>
+</body>
+
+</html>
