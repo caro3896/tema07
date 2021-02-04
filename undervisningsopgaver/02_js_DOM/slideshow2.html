@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <section>
+        <h1>Tro på det...</h1>
+        <img src="https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img1.png" alt="">
+        <button>Videre</button>
+        <p>Billeder brugt med tilladelse af Rasmus Bregnhøi</p>
+    </section>
+
+    <script>
+        let tal = 0;
+        const img = document.querySelector("img");
+        const button = document.querySelector("button");
+        const billeder = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png"];
+
+        button.addEventListener("click", videre);
+
+        function videre() {
+            img.src = "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/" + billeder[tal];
+            img.alt = billeder[tal];
+            if (tal < 7) {
+                button.textContent = "Videre";
+                tal++;
+
+            } else {
+                button.textContent = "Forfra";
+                tal = 0;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
