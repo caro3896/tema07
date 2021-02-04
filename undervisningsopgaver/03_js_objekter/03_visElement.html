@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <article id="dyr">
+        <h3></h3>
+        <img src="" alt="">
+        <p>Type: </p>
+        <p>Levested: </p>
+    </article>
+    <script>
+        //Opretter objekt
+        let dyr = {
+            "navn": "gris",
+            "type": "pattedyr",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+            "levested": "svinefarme"
+        };
+
+        //Udskriver i konsollen
+        console.log(`Dyr: ${dyr.navn}, Type: ${dyr.type}, Billede: ${dyr.billede}, Levested: ${dyr.levested}`)
+
+        //Indsætter i DOM
+        window.addEventListener("DOMContentLoaded", DOMLoaded)
+
+        function DOMLoaded() {
+            const destination = document.querySelector("#dyr");
+
+            //Indsætter overskrift
+            destination.querySelector("h3").textContent = dyr.navn;
+
+            //Indsætter billede
+            destination.querySelector("img").src = dyr.billede;
+
+            //Indsætter type
+            destination.querySelector("article:first-child p").textContent += dyr.type;
+
+            //Indsætter levested
+            destination.querySelector("p:nth-of-type(2n) ").textContent += dyr.levested;
+
+        }
+
+    </script>
+</body>
+
+</html>
