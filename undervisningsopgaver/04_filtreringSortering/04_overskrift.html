@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            display: block;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        article {
+            border: 1px solid orange;
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        nav {
+            height: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            border: 2px solid orange;
+            border-radius: 10px;
+            background-color: orange;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin: 5px;
+        }
+
+        .valgt {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Alle</h1>
+        <nav>
+            <button data-troende="alle" class="valgt">Alle</button>
+            <button data-troende="ja">Troende</button>
+            <button data-troende="nej">Ikke troende</button>
+            <button data-troende="tvivler">Tvivler</button>
+        </nav>
+        <section>
+            <template>
+                <article>
+                    <img src="" alt="" class="billede">
+                    <h2 class="navn"></h2>
+                    <p class="efternavn"></p>
+                </article>
+            </template>
+        </section>
+    </main>
+
+    <script>
+        const header = document.querySelector("h1")
+        const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+
+        const options = {
+            headers: {
+                'x-apikey': "600fe9211346a1524ff12e31"
+            }
+        };
+
+        let filter = "alle";
+        let personer;
+        const filterKnapper = document.querySelectorAll("nav button");
+        filterKnapper.forEach(knap => knap.addEventListener("click", filtrerPersoner));
+
+        function filtrerPersoner() {
+            filter = this.dataset.troende;
+
+            visPersoner();
+            header.textContent = this.textContent;
+        }
+
+        async function hentData() {
+            const respons = await fetch(url, options);
+            personer = await respons.json();
+            visPersoner();
+        }
+
+        const main = document.querySelector("section");
+        const template = document.querySelector("template").content;
+        const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
+
+
+        function visPersoner() {
+            main.textContent = "";
+            personer.forEach(person => {
+                console.log("Troende", person.troende);
+                if (filter == person.troende || filter == "alle") {
+                    const klon = template.cloneNode(true);
+                    klon.querySelector(".billede").src = medieurl + person.billede;
+                    klon.querySelector(".navn").textContent = person.fornavn;
+                    klon.querySelector(".efternavn").textContent = person.efternavn;
+                    main.appendChild(klon);
+                }
+
+
+            })
+        }
+
+        hentData();
+    </script>
+</body></html>
