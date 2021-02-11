@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Bistro Babushka</title>
+    <link rel="stylesheet" href="style_bistro.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <header>
+        <div id="title">
+            <h1>Bistro</h1>
+            <h1>Babushka</h1>
+        </div>
+        <nav>
+            <a href="#title">Velkommen</a>
+            <a href="#knapper">Menu</a>
+            <a href="#footer">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="velkommen">
+            <h2>Velkommen til Bistro Babushka</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, eligendi facilis soluta, nihil ea incidunt. Optio ullam odio molestiae possimus illo maxime minima id excepturi deleniti voluptatem ea laudantium qui, nemo fugit saepe sed, consequatur laborum fuga aliquid, esse adipisci sunt.
+                <br>Nostrum veritatis pariatur doloremque, velit beatae totam corporis tempore natus, fugiat optio voluptas sequi accusamus quas laboriosam assumenda consequatur soluta distinctio quasi qui enim, et aut quis odio molestiae.
+                <br>Accusamus et, laboriosam!
+            </p>
+        </section>
+        <div id="knapper">
+            <h1>Menu</h1>
+            <h2>Alle</h2>
+            <section class="dropdown">
+                <button class="sorter">Sorter efter &blacktriangledown;</button>
+                <div id="filtre" class="dropdown-content">
+                    <button data-kategori="alle" class="valgt">Alle</button>
+                    <button data-kategori="forretter">Forretter</button>
+                    <button data-kategori="hovedretter">Hovedretter</button>
+                    <button data-kategori="sideorders">Sideorders</button>
+                    <button data-kategori="desserter">Desserter</button>
+                    <button data-kategori="drikkevarer">Drikkevarer</button>
+                </div>
+            </section>
+        </div>
+
+        <section id="menu">
+            <template>
+                <article class="ret">
+                    <div class="img">
+                        <img src="" alt="" class="billede">
+                    </div>
+                    <div class="text">
+                        <h2 class="navn"></h2>
+                        <p class="beskrivelse_kort"></p>
+                        <p class="pris"></p>
+                    </div>
+                </article>
+            </template>
+        </section>
+
+        <section>
+            <div id="nyhedsbrev">
+                <h2>Vil du have rabat på dit næste køb?</h2>
+                <p>Tilmeld dig vores nyhedsbrev og få besked om rabatter, events og andre spændende nyheder.</p>
+                <form id="tilmeld">
+                    <input name="email" type="text" id="email" placeholder="Email">
+                    <button id="submit">Tilmeld</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div id="footer">
+            <div id="copyright">
+                <p>&copy; 2021 Caroline Ragnholm Juhl</p>
+            </div>
+            <div id="info">
+                <div class="kontakt">
+                    <h2>Kontakt</h2>
+                    <p>Havnevej 22
+                        <br>1234 København
+                        <br>+45 12 34 56 78
+                        <br>bistro@babushka.dk
+                    </p>
+                </div>
+                <div class="tider">
+                    <h2>Åbningstider</h2>
+                    <p>Man-tors: 15-22
+                        <br>Fre-lør: 12-22
+                        <br>Søndag: Lukket
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="js_bistro.js"></script>
+</body></html>
